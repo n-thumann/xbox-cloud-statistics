@@ -1,0 +1,30 @@
+
+[games.FORTNITE]
+title = "Fortnite"
+image_url = "https://store-images.s-microsoft.com/image/apps.9582.70702278257994163.a9af653c-54d0-4c47-a1f0-bd2f08fe0fd1.3ea1af1a-95a6-4543-be33-94c112ed5dc3"
+subscriptions = ["F2P", "GPU"]
+
+[games.STARFIELD]
+title = "Starfield"
+image_url = "https://store-images.s-microsoft.com/image/apps.35187.13567343664224659.1eb6fdf9-8a0b-4344-a135-ab17dfa3c609.c83b6d6a-56c3-4c3f-8b31-456cfb21c3b7"
+subscriptions = ["GPU"]
+
+[games.GRANDTHEFTAUTOONLINE]
+title = "Grand Theft Auto V (Xbox Series X|S)"
+image_url = "https://store-images.s-microsoft.com/image/apps.25111.14171925115759792.46ff70c5-7760-41a8-9ced-d2de5ae78f17.a595ad6c-5ee2-4d5f-96ed-96c2c62c46e0"
+subscriptions = ["GPU"]
+
+[games.TOMCLANCYSGHOSTRECONWILDLANDSSTANDARDEDITION]
+title = "Tom Clancy’s Ghost Recon® Wildlands - Standard Edition"
+image_url = "https://store-images.s-microsoft.com/image/apps.43306.65577870102127192.24a0a154-ded1-4a40-a91f-102019aaee70.3d6649c7-7ee3-4a8d-80f6-3eeb41e5484d"
+subscriptions = ["GPU"]
+
+[games.PAYDAY3]
+title = "PAYDAY 3"
+image_url = "https://store-images.s-microsoft.com/image/apps.41648.13779457877292855.4803a4b4-94cc-4b12-bf91-ad49bcb0c65c.f14df05b-5717-4af8-a8ab-6201e4159608"
+subscriptions = ["GPU"]
+
+[games.GOTHAMKNIGHTS]
+title = "Gotham Knights"
+image_url = "https://store-images.s-microsoft.com/image/apps.27843.70676690581893559.a37ccc27-65ef-4e47-856a-9fcdd0c1017f.3166464c-271b-42c6-b052-0f1aa9432426"
+subscriptions = ["GPU"]
