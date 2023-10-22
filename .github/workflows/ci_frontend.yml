@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: frontend/
+    paths: frontend/**
   pull_request:
     branches: [main]
-    paths: frontend/
+    paths: frontend/**
 
 env:
   FRONTEND_PATH: frontend
