@@ -22,3 +22,17 @@
 1. Export environment variables `CLIENT_ID` and `CLIENT_SECRET` to authenticate as the App registration
 2. Export environment variables `F2P_TOKEN` and `GPU_TOKEN` to authenticate as the user
 3. Run `poetry run xbox-cloud-statistics`, printing a table with the results and writing them to `./results`
+
+## Configuration
+
+The configuration file ([config.toml](config.toml)) contains all games that should be queried.
+The example below shows the configuration for Fortnite with Xbox Cloud ID `FORTNITE`, title `Fortnite` and image (poster) URL and the subscriptions its available in (Free-to-Play and Game Pass Ultimate):
+
+```
+[games.FORTNITE]
+title = "Fortnite"
+image_url = "https://store-images.s-microsoft.com/image/apps.9582.70702278257994163.a9af653c-54d0-4c47-a1f0-bd2f08fe0fd1.3ea1af1a-95a6-4543-be33-94c112ed5dc3"
+subscriptions = ["F2P", "GPU"]
+```
+
+After adding new games to the configuration, please run `poetry run toml-sort -i config.toml` to keep them sorted.
