@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "lint": "eslint --max-warnings 0 --ignore-path .gitignore .",
+    "lint:fix": "eslint --max-warnings 0 --ignore-path .gitignore --fix .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
+  },
+  "devDependencies": {
+    "@nuxt/content": "^2.8.5",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/google-fonts": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "nuxt": "^3.7.4",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
+    "vue-tsc": "^1.8.19"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.0",
+    "chartjs-adapter-dayjs-4": "^1.0.4",
+    "dayjs": "^1.11.10",
+    "vue-chartjs": "^5.2.0"
+  }
+}
