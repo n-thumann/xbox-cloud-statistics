@@ -1,22 +1,106 @@
+[games.ARK]
+title = "ARK: Ultimate Survivor Edition"
+image_url = "https://store-images.s-microsoft.com/image/apps.52261.14036931078975578.35527dd4-bd1c-43d9-90ff-3a801a47df6a.d5645ab8-82fd-46e0-b961-9fc179d12fe4"
+subscriptions = ["GPU"]
+
+[games.ASSASSINSCREEDODYSSEY]
+title = "Assassin's Creed® Odyssey"
+image_url = "https://store-images.s-microsoft.com/image/apps.51903.71972716530068101.ccdcadf1-1d2a-49f2-9c37-0b0a27e5a53c.08e06d2d-1104-4c80-b879-91facf8348d5"
+subscriptions = ["GPU"]
+
+[games.ASSASSINSCREEDORIGINS]
+title = "Assassin's Creed® Origins"
+image_url = "https://store-images.s-microsoft.com/image/apps.29520.63657969076271726.154f5a09-55ab-4b31-bc57-4e0335fab06a.98159a5f-99d5-4db9-89bc-4ae02f971596"
+subscriptions = ["GPU"]
+
+[games.BATTLEFIELD2042XBOXSERIESXS]
+title = "Battlefield™ 2042 Xbox Series X|S"
+image_url = "https://store-images.s-microsoft.com/image/apps.38194.14524595367279766.cf1e9796-ca30-403f-8373-36da51dafac7.f98212b5-9c47-475e-a5bf-3530608585ca"
+subscriptions = ["GPU"]
+
+[games.CARMECHANICSIMULATOR2021]
+title = "Car Mechanic Simulator 2021"
+image_url = "https://store-images.s-microsoft.com/image/apps.25594.13635623008017579.c3c49040-6ffd-4834-b97d-bf656fa40ffa.6f72dec3-9baf-446e-ad85-70090db1f8c0"
+subscriptions = ["GPU"]
+
+[games.EASPORTSFIFA23XBOXSERIESXS]
+title = "EA SPORTS™ FIFA 23 Standard Edition Xbox Series X|S"
+image_url = "https://store-images.s-microsoft.com/image/apps.28530.13981706901537608.82cbb8a4-4b3e-4b23-a32a-ab7e825c9944.ddf36d5f-89ba-4ef8-bd11-dfe066fd1b8f"
+subscriptions = ["GPU"]
+
+[games.FARCRY5]
+title = "Far Cry® 5"
+image_url = "https://store-images.s-microsoft.com/image/apps.11227.69582963086497758.e1cff2e3-ddf1-42bf-930d-f380ad63f100.38d7bb7c-3e33-471b-b22d-0f0a635832ad"
+subscriptions = ["GPU"]
+
+[games.FARMINGSIMULATOR22]
+title = "Farming Simulator 22"
+image_url = "https://store-images.s-microsoft.com/image/apps.27765.14617846210383148.f5d1d30e-892f-4959-a5b8-f2ef506cf0ae.06b579ad-96f8-4022-8597-30495b89c26a"
+subscriptions = ["GPU"]
 
 [games.FORTNITE]
 title = "Fortnite"
 image_url = "https://store-images.s-microsoft.com/image/apps.9582.70702278257994163.a9af653c-54d0-4c47-a1f0-bd2f08fe0fd1.3ea1af1a-95a6-4543-be33-94c112ed5dc3"
 subscriptions = ["F2P", "GPU"]
 
-[games.STARFIELD]
-title = "Starfield"
-image_url = "https://store-images.s-microsoft.com/image/apps.35187.13567343664224659.1eb6fdf9-8a0b-4344-a135-ab17dfa3c609.c83b6d6a-56c3-4c3f-8b31-456cfb21c3b7"
+[games.FORZAHORIZON5]
+title = "Forza Horizon 5 Standard Edition"
+image_url = "https://store-images.s-microsoft.com/image/apps.49800.13718773309227929.bebdcc0e-1ed5-4778-8732-f4ef65a2f445.9ac09d39-064d-466c-81ca-2f1b6f0b95c5"
+subscriptions = ["GPU"]
+
+[games.GOTHAMKNIGHTS]
+title = "Gotham Knights"
+image_url = "https://store-images.s-microsoft.com/image/apps.27843.70676690581893559.a37ccc27-65ef-4e47-856a-9fcdd0c1017f.3166464c-271b-42c6-b052-0f1aa9432426"
 subscriptions = ["GPU"]
 
 [games.GRANDTHEFTAUTOONLINE]
 title = "Grand Theft Auto V (Xbox Series X|S)"
-image_url = "https://store-images.s-microsoft.com/image/apps.25111.14171925115759792.46ff70c5-7760-41a8-9ced-d2de5ae78f17.a595ad6c-5ee2-4d5f-96ed-96c2c62c46e0"
+image_url = "https://store-images.s-microsoft.com/image/apps.25111.14492969036550054.5a1d40f5-fe0d-427a-bd14-9a9ed15a423c.410d0e83-5cb1-4536-b501-0044d6e3f1a0"
 subscriptions = ["GPU"]
 
-[games.TOMCLANCYSGHOSTRECONWILDLANDSSTANDARDEDITION]
-title = "Tom Clancy’s Ghost Recon® Wildlands - Standard Edition"
-image_url = "https://store-images.s-microsoft.com/image/apps.43306.65577870102127192.24a0a154-ded1-4a40-a91f-102019aaee70.3d6649c7-7ee3-4a8d-80f6-3eeb41e5484d"
+[games.GRANDTHEFTAUTOVROW]
+title = "Grand Theft Auto V (Xbox One)"
+image_url = "https://store-images.s-microsoft.com/image/apps.32034.68565266983380288.0f5ef871-88c0-45f7-b108-6aacbc041fcf.9b094362-c51d-49e5-9e92-80710c585fca"
+subscriptions = ["GPU"]
+
+[games.GROUNDED]
+title = "Grounded"
+image_url = "https://store-images.s-microsoft.com/image/apps.56539.14280109286674604.94f3a3e8-211f-41e5-ac9c-d948b5377852.34f5054f-a85e-4634-ab3c-6d4a4ea24fc2"
+subscriptions = ["GPU"]
+
+[games.HALOINFINITE]
+title = "Halo Infinite (Campaign)"
+image_url = "https://store-images.s-microsoft.com/image/apps.21536.13727851868390641.c9cc5f66-aff8-406c-af6b-440838730be0.68796bde-cbf5-4eaa-a299-011417041da6"
+subscriptions = ["GPU"]
+
+[games.HITMAN32021]
+title = "HITMAN World of Assassination"
+image_url = "https://store-images.s-microsoft.com/image/apps.46241.13747708785346246.26b7a239-7aa3-4075-aceb-3fe6324cd11b.22bae141-a400-44a8-b4fa-9836c6e260e5"
+subscriptions = ["GPU"]
+
+[games.MICROSOFTFLIGHTSIMULATOR]
+title = "Microsoft Flight Simulator Standard 40th Anniversary Edition"
+image_url = "https://store-images.s-microsoft.com/image/apps.37136.14293123921570736.739af26b-0b56-4d3a-8d57-149d26c2cc05.73830409-618c-48cc-a4fc-4f6fbc18b7f9"
+subscriptions = ["GPU"]
+
+[games.MINECRAFTLEGENDS]
+title = "Minecraft Legends"
+image_url = "https://store-images.s-microsoft.com/image/apps.18880.13604729742092327.caefc5bb-2935-4aaa-a748-732cfa6151ea.933b2221-79f0-4240-949f-c4ac15312bd7"
+subscriptions = ["GPU"]
+
+[games.MLBTHESHOW23XBOXSERIESXS]
+title = "MLB® The Show™ 23 Xbox Series X|S"
+image_url = "https://store-images.s-microsoft.com/image/apps.21384.13636950280290399.8efeb78f-9d0b-40c9-8030-c1a82710b867.0e1991aa-0935-4556-a595-27979820bc30"
+subscriptions = ["GPU"]
+
+[games.MORTALKOMBAT11]
+title = "Mortal Kombat 11"
+image_url = "https://store-images.s-microsoft.com/image/apps.9688.70804610839547354.8da93c46-fd13-4b16-8ebe-e8e02c53d93e.09c2e91e-28bd-4f6f-bfd6-79d6b241667a"
+subscriptions = ["GPU"]
+
+[games.NEEDFORSPEEDUNBOUND]
+title = "Need for Speed™ Unbound"
+image_url = "https://store-images.s-microsoft.com/image/apps.31585.14329152328871129.15deab2a-237c-449c-880e-7926330dab80.cbfd82b1-535b-4234-989d-2d04127f0529"
 subscriptions = ["GPU"]
 
 [games.PAYDAY3]
@@ -24,7 +108,27 @@ title = "PAYDAY 3"
 image_url = "https://store-images.s-microsoft.com/image/apps.41648.13779457877292855.4803a4b4-94cc-4b12-bf91-ad49bcb0c65c.f14df05b-5717-4af8-a8ab-6201e4159608"
 subscriptions = ["GPU"]
 
-[games.GOTHAMKNIGHTS]
-title = "Gotham Knights"
-image_url = "https://store-images.s-microsoft.com/image/apps.27843.70676690581893559.a37ccc27-65ef-4e47-856a-9fcdd0c1017f.3166464c-271b-42c6-b052-0f1aa9432426"
+[games.RAINBOWSIXSIEGE]
+title = "Tom Clancy's Rainbow Six® Siege Deluxe Edition"
+image_url = "https://store-images.s-microsoft.com/image/apps.32841.14184565790148854.afd18a88-7bb0-4891-8c23-9420788f8943.c218a526-5572-4719-9f0e-be10b16cd42a"
+subscriptions = ["GPU"]
+
+[games.REDFALL]
+title = "Redfall"
+image_url = "https://store-images.s-microsoft.com/image/apps.60545.14091188428798620.2f105d2c-1b7f-4fd0-b12e-5483087f47d1.0dd8d438-0fc9-4d71-ac1b-21ed62e26ec2"
+subscriptions = ["GPU"]
+
+[games.SEAOFTHIEVES]
+title = "Sea of Thieves 2023 Edition"
+image_url = "https://store-images.s-microsoft.com/image/apps.43386.14554784103656548.f1f246f3-99c9-4789-bbe8-e2948b2c92c9.2be1cb5f-ef96-4d16-abcd-055adb8e6cc1"
+subscriptions = ["GPU"]
+
+[games.STARFIELD]
+title = "Starfield"
+image_url = "https://store-images.s-microsoft.com/image/apps.35187.13567343664224659.1eb6fdf9-8a0b-4344-a135-ab17dfa3c609.c83b6d6a-56c3-4c3f-8b31-456cfb21c3b7"
+subscriptions = ["GPU"]
+
+[games.TOMCLANCYSGHOSTRECONWILDLANDSSTANDARDEDITION]
+title = "Tom Clancy’s Ghost Recon® Wildlands - Standard Edition"
+image_url = "https://store-images.s-microsoft.com/image/apps.43306.65577870102127192.24a0a154-ded1-4a40-a91f-102019aaee70.3d6649c7-7ee3-4a8d-80f6-3eeb41e5484d"
 subscriptions = ["GPU"]

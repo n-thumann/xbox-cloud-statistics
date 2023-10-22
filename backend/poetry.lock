@@ -624,6 +624,31 @@ files = [
 widechars = ["wcwidth"]
 
 [[package]]
+name = "toml-sort"
+version = "0.23.1"
+description = "Toml sorting library"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "toml_sort-0.23.1-py3-none-any.whl", hash = "sha256:69ae60de9c4d67478533697eb4119092e2b30ddffe5ca09bbad3912905c935a0"},
+    {file = "toml_sort-0.23.1.tar.gz", hash = "sha256:833728c48b0f8d509aecd9ae8347768ca3a9332977b32c9fd2002932f0eb9c90"},
+]
+
+[package.dependencies]
+tomlkit = ">=0.11.2"
+
+[[package]]
+name = "tomlkit"
+version = "0.12.1"
+description = "Style preserving TOML library"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "tomlkit-0.12.1-py3-none-any.whl", hash = "sha256:712cbd236609acc6a3e2e97253dfc52d4c2082982a88f61b640ecf0817eab899"},
+    {file = "tomlkit-0.12.1.tar.gz", hash = "sha256:38e1ff8edb991273ec9f6181244a6a391ac30e9f5098e7535640ea6be97a7c86"},
+]
+
+[[package]]
 name = "types-tabulate"
 version = "0.9.0.3"
 description = "Typing stubs for tabulate"
@@ -665,4 +690,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "38c6b3580fff1bf5cbbd99cc4b861bcec6c127a46348b5119089ca159527b3d6"
+content-hash = "3300c9422ed2155db35054ce3d431987ca5142b9473fb0912fb2847e707ba876"
