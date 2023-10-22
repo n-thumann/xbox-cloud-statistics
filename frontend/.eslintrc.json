@@ -1,0 +1,11 @@
+{
+  "extends": ["@nuxtjs/eslint-config-typescript", "prettier"],
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": "allow-with-description"
+      }
+    ]
+  }
+}
