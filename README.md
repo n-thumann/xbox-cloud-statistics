@@ -24,7 +24,7 @@ For setup and usage please refer to [backend/README](./backend/README.md).
 
 For setup and usage please refer to [frontend/README](./frontend/README.md).
 
-https://github.com/n-thumann/xbox-cloud-statistics/assets/46975855/f173ae53-e495-4f3d-9ba1-c837952141a0
+https://github.com/n-thumann/xbox-cloud-statistics/assets/46975855/05949add-87a4-4710-b908-41b47aa48b0a
 
 ## Measurement data
 
