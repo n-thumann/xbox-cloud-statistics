@@ -1,0 +1,59 @@
+name: Deploy to Pages
+
+on:
+  workflow_run:
+    workflows: [Run xbox-cloud-statistics]
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+env:
+  FRONTEND_PATH: frontend
+
+jobs:
+  build:
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    defaults:
+      run:
+        working-directory: ${{ env.FRONTEND_PATH }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: results
+          path: ${{ env.FRONTEND_PATH }}/results/
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ${{ env.FRONTEND_PATH }}/package-lock.json
+      - name: Install NPM dependencies
+        run: npm ci
+      - name: Build frontend
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ${{ env.FRONTEND_PATH }}/.output/public/
+
+  deploy:
+    needs: build
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
