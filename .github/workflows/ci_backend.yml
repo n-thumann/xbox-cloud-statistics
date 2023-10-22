@@ -1,0 +1,36 @@
+name: CI (Backend)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: backend/
+  pull_request:
+    branches: [main]
+    paths: backend/
+
+env:
+  BACKEND_PATH: backend
+  PROJECT_PATH: xbox_cloud_statistics
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.BACKEND_PATH }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install poetry
+        run: pipx install poetry
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "poetry"
+      - name: Install Dependencies
+        run: poetry install
+      - name: Run black
+        run: poetry run black $PROJECT_PATH
+      - name: Run ruff
+        run: poetry run ruff check $PROJECT_PATH

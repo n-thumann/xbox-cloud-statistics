@@ -1,0 +1,56 @@
+name: Run xbox-cloud-statistics
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: xbox-cloud-statistics
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+env:
+  BACKEND_PATH: backend
+
+jobs:
+  run:
+    name: Run xbox-cloud-statistics
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
+    defaults:
+      run:
+        working-directory: ${{ env.BACKEND_PATH }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          ref: results
+          path: ${{ env.BACKEND_PATH}}/results
+      - name: Install poetry
+        run: pipx install poetry
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "poetry"
+      - name: Install Dependencies
+        run: poetry install --only main
+      - name: Run xbox-cloud-statistics
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          F2P_TOKEN: ${{ secrets.F2P_TOKEN }}
+          GPU_TOKEN: ${{ secrets.GPU_TOKEN }}
+        run: poetry run xbox-cloud-statistics | tee -a $GITHUB_STEP_SUMMARY
+      - name: Persist results
+        working-directory: ${{ env.BACKEND_PATH}}/results
+        run: |
+          LAST_UPDATE=$(date --utc --date "@$(jq .last_update meta.json)")
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Update results ($LAST_UPDATE)"
+          git push
