@@ -37,6 +37,12 @@ class Game(Model):
     def to_dict(self) -> dict:
         return {"id": self.id, "title": self.title, "image_url": self.image_url}
 
+    def __lt__(self, other) -> bool:
+        if not isinstance(other, Game):
+            raise TypeError
+
+        return self.id < other.id
+
 
 @dataclass(frozen=True)
 class Measurement(Model):
@@ -126,7 +132,7 @@ class Results(Model):
         return self._games[game]
 
     def __iter__(self) -> Iterator[tuple[Game, GameResult]]:
-        return iter(self._games.items())
+        return iter(sorted(self._games.items()))
 
     def to_dict(self) -> dict:
         return {game.id: game_result for game, game_result in self}
