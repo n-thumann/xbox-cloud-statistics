@@ -48,6 +48,11 @@ title = "Forza Horizon 5 Standard Edition"
 image_url = "https://store-images.s-microsoft.com/image/apps.49800.13718773309227929.bebdcc0e-1ed5-4778-8732-f4ef65a2f445.9ac09d39-064d-466c-81ca-2f1b6f0b95c5"
 subscriptions = ["GPU"]
 
+[games.FORZAMOTORSPORT8]
+title = "Forza Motorsport Standard Edition"
+image_url = "https://store-images.s-microsoft.com/image/apps.57449.14311721322459352.08838dcd-1049-42ef-a004-b13ad1d41946.4eeb1f6f-f279-4d5b-83b0-8fb4cc7f9aea"
+subscriptions = ["GPU"]
+
 [games.GOTHAMKNIGHTS]
 title = "Gotham Knights"
 image_url = "https://store-images.s-microsoft.com/image/apps.27843.70676690581893559.a37ccc27-65ef-4e47-856a-9fcdd0c1017f.3166464c-271b-42c6-b052-0f1aa9432426"
@@ -76,6 +81,11 @@ subscriptions = ["GPU"]
 [games.HITMAN32021]
 title = "HITMAN World of Assassination"
 image_url = "https://store-images.s-microsoft.com/image/apps.46241.13747708785346246.26b7a239-7aa3-4075-aceb-3fe6324cd11b.22bae141-a400-44a8-b4fa-9836c6e260e5"
+subscriptions = ["GPU"]
+
+[games.LIESOFP]
+title = "Lies of P"
+image_url = "https://store-images.s-microsoft.com/image/apps.8000.14167207133116460.47e9afed-5648-49f3-aa78-034a762fbc26.5d6dba1a-d04e-42aa-9dc2-9286e72dc007"
 subscriptions = ["GPU"]
 
 [games.MICROSOFTFLIGHTSIMULATOR]
