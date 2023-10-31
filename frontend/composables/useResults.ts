@@ -14,6 +14,7 @@ export const useResults = async (gameId: string) => {
     const region = result.path[3] as string;
     const subscription = result.title as string;
 
+    // @ts-ignore: results.body is filled by my own body-content transformer
     const points: Point[] = Object.entries(result.body)
       .map(([serverTime, waitTime]) => [
         parseInt(serverTime) * 1000,
