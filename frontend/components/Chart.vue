@@ -3,18 +3,18 @@ import "chartjs-adapter-dayjs-4/dist/chartjs-adapter-dayjs-4.esm";
 import {
   BarElement,
   CategoryScale,
-  ChartDataset,
   Chart as ChartJS,
-  ChartOptions,
   Legend,
   LineElement,
   LinearScale,
-  Point,
   PointElement,
   TimeScale,
   Title,
   Tooltip,
-  TooltipItem,
+  type ChartDataset,
+  type ChartOptions,
+  type Point,
+  type TooltipItem,
 } from "chart.js";
 import { Line } from "vue-chartjs";
 import { useDate } from "~/composables/useDate";

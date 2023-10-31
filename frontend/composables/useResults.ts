@@ -1,4 +1,4 @@
-import { Point } from "chart.js";
+import type { Point } from "chart.js";
 
 const MAX_DAYS = 3;
 const MS_PER_DAY = 1000 * 60 * 60 * 24;
