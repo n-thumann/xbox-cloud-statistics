@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChartDataset, Point } from "chart.js";
+import type { ChartDataset, Point } from "chart.js";
 import colors from "#tailwind-config/theme/colors";
 
 const gameId = useRoute().params.game as string;
