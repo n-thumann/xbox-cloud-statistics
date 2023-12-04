@@ -17,12 +17,12 @@
     "@nuxtjs/google-fonts": "^3.1.0",
     "@nuxtjs/tailwindcss": "^6.10.1",
     "autoprefixer": "^10.4.16",
-    "eslint": "^8.54.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
     "nuxt": "^3.8.2",
     "prettier": "^3.1.0",
     "typescript": "^5.3.2",
-    "vue-tsc": "^1.8.22"
+    "vue-tsc": "^1.8.24"
   },
   "dependencies": {
     "chart.js": "^4.4.0",
