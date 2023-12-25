@@ -35,6 +35,10 @@ jobs:
           cache-dependency-path: ${{ env.FRONTEND_PATH }}/package-lock.json
       - name: Install NPM dependencies
         run: npm ci
+      - name: Workaround to fix build
+        run: |
+          apt update && apt install -y moreutils
+          find results/games -type f -exec bash -c "jq 'with_entries(select(.key | tonumber > now - 60 * 60 * 24 * 7))' {} | sponge {}" \;
       - name: Build frontend
         run: npm run build
       - name: Upload artifact
