@@ -37,7 +37,8 @@ jobs:
         run: npm ci
       - name: Workaround to fix build
         run: |
-          apt update && apt install -y moreutils
+          sudo apt-get update
+          sudo apt-get install -y moreutils
           find results/games -type f -exec bash -c "jq 'with_entries(select(.key | tonumber > now - 60 * 60 * 24 * 7))' {} | sponge {}" \;
       - name: Build frontend
         run: npm run build
