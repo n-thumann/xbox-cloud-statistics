@@ -2,6 +2,11 @@
 <meta charset="utf-8">
 <html>
     <head>
+        {% if title is defined %}
+            <title>{{ title }} - Xbox Cloud Statistics</title>
+        {% else %}
+            <title>Xbox Cloud Statistics</title>
+        {% endif %}
         {% for script in scripts %}
         <script>{{ script }}</script>
         {% endfor %}
@@ -9,7 +14,6 @@
         <style>{{ style }}</style>
         {% endfor %}
     </head>
-    {% endblock %}
 <body>
     <div class="min-h-screen flex flex-col">
         {% block content required %}{% endblock %}
