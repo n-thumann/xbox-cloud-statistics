@@ -16,7 +16,7 @@ httpx = "^0.26.0"
 site-generator = 'site_generator.main:main'
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.12.1"
+black = "^24.1.1"
 ruff = "^0.1.11"
 
 [build-system]
