@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="max-w-6xl mx-auto p-6 lg:p-20">
+        <h1 class="text-3xl font-bold uppercase text-center pb-2 lg:text-4xl">
+            Xbox Cloud Statistics
+        </h1>
+
+        <div class="w-28 mx-auto bg-xbox pb-1 mb-10 lg:mb-12"></div>
+
+        <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:gap-6">
+            {% for game in games %}
+            <a href="/games/{{ game.id }}.html" title="{{ game.title }}" class="overflow-hidden relative group/game">
+                <img src="{{ game.image_url }}" title="{{ game.title }}" class="transition-transform duration-700 group-hover/game:scale-110 group-hover/game:rotate-2" />
+
+                <div class="absolute inset-0 bg-xbox h-full w-full transition-opacity duration-700 opacity-0 group-hover/game:opacity-50"></div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

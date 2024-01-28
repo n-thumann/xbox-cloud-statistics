@@ -1,0 +1,72 @@
+
+<div>
+    <canvas id="chart_{{ region }}"></canvas>
+</div>
+
+<script>
+    function formatDate(seconds, fullTime = false) {
+        return new Date(seconds * 1000)
+            .toISOString()
+            .slice(seconds >= 3600 || fullTime ? 11 : 14, 19)
+    }
+
+    new Chart(document.getElementById('chart_{{ region }}'), {
+        type: 'line',
+        data: {
+            datasets: [
+                {% for subscription, measurements in subscriptions.items() %}
+                {
+                    label: "{{ subscription }}",
+                    data: {{ measurements }},
+                    borderColor: "{{ subscription | to_color }}",
+                    backgroundColor: "{{ subscription | to_color }}",
+                },
+                {% endfor %}
+            ]
+        },
+        options: {
+            animation: false,
+            elements: {
+                point: {
+                    radius: 0,
+                    hitRadius: 5,
+                },
+                line: {
+                    borderWidth: 2,
+                },
+            },
+            scales: {
+                x: {
+                    type: "time",
+                    grid: {
+                        display: false,
+                    },
+                    time: {
+                        parser: (x) => x * 1000
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false,
+                    },
+                    ticks: {
+                        callback: seconds => formatDate(seconds),
+                        count: 4,
+                    },
+                },
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipItems => new Date(tooltipItems[0].parsed.x).toLocaleString(),
+                        label: tooltopItem => `Wait time for ${tooltopItem.dataset.label}: ${formatDate(tooltopItem.parsed.y, true)}`
+                    },
+                },
+            },
+        }
+    });
+</script>
