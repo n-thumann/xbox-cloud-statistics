@@ -21,8 +21,8 @@ jobs:
       run:
         working-directory: ${{ env.FRONTEND_PATH }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           ref: results
           path: ${{ env.FRONTEND_PATH}}/results/
@@ -38,7 +38,7 @@ jobs:
       - name: Run site-generator
         run: poetry run site-generator
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ env.FRONTEND_PATH }}/dist/
 
