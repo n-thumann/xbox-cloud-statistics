@@ -3,15 +3,15 @@ updates:
   - package-ecosystem: "pip"
     directory: "/backend"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       backend-dependendcies:
         patterns:
           - "*"
-  - package-ecosystem: "npm"
+  - package-ecosystem: "pip"
     directory: "/frontend"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       frontend-dependendcies:
         patterns:
