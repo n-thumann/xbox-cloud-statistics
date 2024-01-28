@@ -8,7 +8,7 @@ updates:
       backend-dependendcies:
         patterns:
           - "*"
-  - package-ecosystem: "npm"
+  - package-ecosystem: "pip"
     directory: "/frontend"
     schedule:
       interval: "weekly"
