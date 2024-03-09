@@ -28,4 +28,4 @@ https://github.com/n-thumann/xbox-cloud-statistics/assets/46975855/05949add-87a4
 
 ## Measurement data
 
-The measurement data is available as JSON on the [`results`](https://github.com/n-thumann/xbox-cloud-statistics/tree/results) branch.
+The measurement data is available as JSON in `results.tar.gz` of [this](https://github.com/n-thumann/xbox-cloud-statistics/releases/tag/results) release.

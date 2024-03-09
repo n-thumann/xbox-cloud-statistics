@@ -3,7 +3,7 @@
 ## Setup
 
 1. Run `poetry install` to install the dependencies
-2. Run `git worktree add ./results origin/results` to checkout the latest results locally (optionally)
+2. Download https://github.com/n-thumann/xbox-cloud-statistics/releases/download/results/results.tar.gz and extract it to get latest results locally (optionally)
 3. Create an App registration at Microsoft Azure
    - See https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
    - Use `Personal Microsoft accounts only` as `Supported account types`
