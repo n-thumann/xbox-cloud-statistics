@@ -12,6 +12,7 @@ concurrency:
 
 env:
   FRONTEND_PATH: frontend
+  RESULTS_FILE_NAME: results.tar.gz
 
 jobs:
   build:
@@ -22,10 +23,10 @@ jobs:
         working-directory: ${{ env.FRONTEND_PATH }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          ref: results
-          path: ${{ env.FRONTEND_PATH}}/results/
+      - name: Download results
+        run: |
+          gh release download results --pattern ${{ env.RESULTS_FILE_NAME }}
+          tar -xzf ${{ env.RESULTS_FILE_NAME }}
       - name: Install poetry
         run: pipx install poetry
       - name: Set up Python
