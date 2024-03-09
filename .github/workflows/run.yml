@@ -13,6 +13,7 @@ permissions:
   contents: write
 
 env:
+  GH_TOKEN: ${{ github.token }}
   RESULTS_FILE_NAME: results.tar.gz
 
 jobs:
