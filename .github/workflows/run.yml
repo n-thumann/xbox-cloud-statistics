@@ -28,7 +28,7 @@ jobs:
       - name: Download results
         run: |
           gh release download results --pattern ${{ env.RESULTS_FILE_NAME }}
-          tar -xzf ${{ env.RESULTS_FILE_NAME }}
+          tar -xzvf ${{ env.RESULTS_FILE_NAME }}
       - name: Install poetry
         run: pipx install poetry
       - name: Set up Python
@@ -47,7 +47,7 @@ jobs:
         run: poetry run xbox-cloud-statistics | tee -a $GITHUB_STEP_SUMMARY
       - name: Persist results
         run: |
-          tar -czf ${{ env.RESULTS_FILE_NAME }} results/
+          tar -czvf ${{ env.RESULTS_FILE_NAME }} results/
           LAST_UPDATE=$(date --utc --date "@$(jq .last_update ./results/meta.json)")
           gh release edit results \
             --title "Results from $LAST_UPDATE" \

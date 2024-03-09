@@ -27,7 +27,7 @@ jobs:
       - name: Download results
         run: |
           gh release download results --pattern ${{ env.RESULTS_FILE_NAME }}
-          tar -xzf ${{ env.RESULTS_FILE_NAME }}
+          tar -xzvf ${{ env.RESULTS_FILE_NAME }}
       - name: Install poetry
         run: pipx install poetry
       - name: Set up Python
