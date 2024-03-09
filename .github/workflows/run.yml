@@ -51,5 +51,5 @@ jobs:
           LAST_UPDATE=$(date --utc --date "@$(jq .last_update ./results/meta.json)")
           gh release edit results \
             --title "Results from $LAST_UPDATE" \
-            --notes "`results.tar.gz` of this release contains the latest results as of $LAST_UPDATE"
+            --notes "\`results.tar.gz\` of this release contains the latest results as of $LAST_UPDATE"
           gh release upload results ${{ env.RESULTS_FILE_NAME }} --clobber
