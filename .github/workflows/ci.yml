@@ -1,24 +1,26 @@
-name: CI (Frontend)
+name: CI
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: frontend/**
   pull_request:
     branches: [main]
-    paths: frontend/**
-
-env:
-  FRONTEND_PATH: frontend
-  PROJECT_PATH: site_generator
 
 jobs:
   ci:
+    name: CI (${{ matrix.path }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - path: backend
+            project: xbox_cloud_statistics
+          - path: frontend
+            project: site_generator
     defaults:
       run:
-        working-directory: ${{ env.FRONTEND_PATH }}
+        working-directory: ${{ matrix.path }}
     steps:
       - uses: actions/checkout@v4
       - name: Install poetry
@@ -31,6 +33,6 @@ jobs:
       - name: Install Dependencies
         run: poetry install
       - name: Run black
-        run: poetry run black $PROJECT_PATH
+        run: poetry run black ${{ matrix.project }}
       - name: Run ruff
-        run: poetry run ruff check $PROJECT_PATH
+        run: poetry run ruff check ${{ matrix.project }}
