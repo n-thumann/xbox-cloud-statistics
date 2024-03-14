@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.RESULTS_FILE_NAME }}
-          path: ${{ env.RESULTS_FILE_NAME }}
+          path: backend/${{ env.RESULTS_FILE_NAME }}
           retention-days: 1
       - name: Persist results
         run: |
