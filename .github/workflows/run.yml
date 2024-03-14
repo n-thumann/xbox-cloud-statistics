@@ -45,9 +45,16 @@ jobs:
           F2P_TOKEN: ${{ secrets.F2P_TOKEN }}
           GPU_TOKEN: ${{ secrets.GPU_TOKEN }}
         run: poetry run xbox-cloud-statistics | tee -a $GITHUB_STEP_SUMMARY
+      - name: Prepare results
+        run: tar -czvf ${{ env.RESULTS_FILE_NAME }} results/
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.RESULTS_FILE_NAME }}
+          path: ${{ env.RESULTS_FILE_NAME }}
+          retention-days: 1
       - name: Persist results
         run: |
-          tar -czvf ${{ env.RESULTS_FILE_NAME }} results/
           LAST_UPDATE=$(date --utc --date "@$(jq .last_update ./results/meta.json)")
           gh release edit results \
             --title "Results from $LAST_UPDATE" \
