@@ -20,6 +20,7 @@ jobs:
   run:
     name: Run xbox-cloud-statistics
     runs-on: ubuntu-latest
+    environment: run
     defaults:
       run:
         working-directory: backend/
