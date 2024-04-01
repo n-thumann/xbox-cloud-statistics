@@ -17,7 +17,7 @@ site-generator = 'site_generator.main:main'
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.3.0"
-ruff = "^0.3.0"
+ruff = "^0.3.4"
 
 [build-system]
 requires = ["poetry-core"]
