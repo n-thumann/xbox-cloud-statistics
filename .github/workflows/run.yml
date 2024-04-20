@@ -45,6 +45,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           F2P_TOKEN: ${{ secrets.F2P_TOKEN }}
           GPU_TOKEN: ${{ secrets.GPU_TOKEN }}
+        shell: bash
         run: poetry run xbox-cloud-statistics | tee -a $GITHUB_STEP_SUMMARY
       - name: Prepare results
         run: tar -czvf ${{ env.RESULTS_FILE_NAME }} results/
