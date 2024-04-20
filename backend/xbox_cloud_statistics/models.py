@@ -54,53 +54,18 @@ class Measurement(Model):
 
 
 @dataclass(frozen=True)
-class Measurements(Model):
-    _measurements: list[Measurement] = field(default_factory=list)
-
-    def __iter__(self) -> Iterator[Measurement]:
-        return iter(self._measurements)
-
-    def to_dict(self) -> dict:
-        x = [measurement.to_dict() for measurement in self._measurements]
-        result = {}
-        for y in x:
-            result |= y
-        return result
-
-    @classmethod
-    def from_dict(cls, measurements: dict[str, int]):
-        return Measurements(
-            [
-                Measurement(datetime.fromtimestamp(int(server_time)), wait_time)
-                for server_time, wait_time in measurements.items()
-            ]
-        )
-
-    def extend(self, other: "Measurements"):
-        if not isinstance(other, Measurements):
-            pass
-        self._measurements.extend(other._measurements)
-
-    def latest(self):
-        return sorted(self._measurements)[0]
-
-    def add_measurement(self, measurement: Measurement):
-        self._measurements.append(measurement)
-
-
-@dataclass(frozen=True)
 class RegionResult(Model):
-    _subscriptions: dict[Subscription, Measurements] = field(
-        default_factory=lambda: defaultdict(Measurements)
+    _subscriptions: dict[Subscription, Measurement] = field(
+        default_factory=lambda: defaultdict(Measurement)
     )
 
-    def __getitem__(self, subscription: Subscription) -> Measurements:
+    def __getitem__(self, subscription: Subscription) -> Measurement:
         return self._subscriptions[subscription]
 
-    def __iter__(self) -> Iterator[tuple[Subscription, Measurements]]:
+    def __iter__(self) -> Iterator[tuple[Subscription, Measurement]]:
         return iter(self._subscriptions.items())
 
-    def to_dict(self) -> list[Subscription] | dict[Subscription, Measurements]:
+    def to_dict(self) -> list[Subscription] | dict[Subscription, Measurement]:
         return {
             subscription_type: measurement for subscription_type, measurement in self
         }
