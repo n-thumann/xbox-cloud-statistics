@@ -1,10 +1,8 @@
-from datetime import datetime
-from pathlib import Path
 
 from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 
-from xbox_cloud_statistics.models import Measurement, Results
+from xbox_cloud_statistics.models import Results
 
 from .io import IO
 
