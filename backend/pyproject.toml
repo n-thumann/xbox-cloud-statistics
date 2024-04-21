@@ -25,11 +25,6 @@ toml-sort = "^0.23.1"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.ruff]
-select = [
-    "I001" # unsorted-imports
-]
-
 [tool.poetry.scripts]
 xbox-cloud-statistics = 'xbox_cloud_statistics.main:run'
 xbox-cloud-authenticate = 'xbox_cloud_statistics.scripts.authenticate:run'
