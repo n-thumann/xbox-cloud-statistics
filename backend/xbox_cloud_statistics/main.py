@@ -70,7 +70,7 @@ async def run_measurements(
             print(f"Failed to handle {game.id}@{region.name}: {measurement}")
             continue
 
-        results[game][region][subscription].add_measurement(measurement)
+        results[game][region][subscription] = measurement
 
 
 if __name__ == "__main__":

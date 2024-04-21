@@ -42,12 +42,13 @@ class Measurement():
 
 @dataclass(frozen=True)
 class RegionResult():
-    _subscriptions: dict[Subscription, Measurement] = field(
-        default_factory=lambda: defaultdict(list)
-    )
+    _subscriptions: dict[Subscription, Measurement] = field(default_factory=lambda: defaultdict())
 
     def __getitem__(self, subscription: Subscription) -> Measurement:
         return self._subscriptions[subscription]
+    
+    def __setitem__(self, subscription: Subscription, measurement: Measurement):
+        self._subscriptions[subscription] = measurement
 
     def __iter__(self) -> Iterator[tuple[Subscription, Measurement]]:
         return iter(self._subscriptions.items())
