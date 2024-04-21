@@ -18,6 +18,9 @@ class Subscription(Flag):
     @classmethod
     def from_string(cls, value: str):
         return cls._member_map_.get(value)
+    
+    def __str__(self) -> str:
+        return self.name
 
 
 @dataclass(frozen=True)
