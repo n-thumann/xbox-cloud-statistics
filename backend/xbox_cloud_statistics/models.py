@@ -5,13 +5,6 @@ from datetime import datetime
 from enum import Flag, auto
 from typing import Iterator
 
-
-class Model(ABC):
-    @abstractmethod
-    def to_dict(self) -> dict | list:
-        pass
-
-
 @dataclass(frozen=True)
 class Region:
     name: str
@@ -28,14 +21,11 @@ class Subscription(Flag):
 
 
 @dataclass(frozen=True)
-class Game(Model):
+class Game():
     id: str
     title: str
     image_url: str
     subscriptions: Subscription
-
-    def to_dict(self) -> dict:
-        return {"id": self.id, "title": self.title, "image_url": self.image_url}
 
     def __lt__(self, other) -> bool:
         if not isinstance(other, Game):
@@ -45,18 +35,15 @@ class Game(Model):
 
 
 @dataclass(frozen=True)
-class Measurement(Model):
+class Measurement():
     server_time: datetime
     wait_time: int
 
-    def to_dict(self) -> dict:
-        return {int(self.server_time.timestamp()): self.wait_time}
-
 
 @dataclass(frozen=True)
-class RegionResult(Model):
+class RegionResult():
     _subscriptions: dict[Subscription, Measurement] = field(
-        default_factory=lambda: defaultdict(Measurement)
+        default_factory=lambda: defaultdict(list)
     )
 
     def __getitem__(self, subscription: Subscription) -> Measurement:
@@ -65,14 +52,8 @@ class RegionResult(Model):
     def __iter__(self) -> Iterator[tuple[Subscription, Measurement]]:
         return iter(self._subscriptions.items())
 
-    def to_dict(self) -> list[Subscription] | dict[Subscription, Measurement]:
-        return {
-            subscription_type: measurement for subscription_type, measurement in self
-        }
-
-
 @dataclass(frozen=True)
-class GameResult(Model):
+class GameResult():
     _regions: dict[Region, RegionResult] = field(
         default_factory=lambda: defaultdict(RegionResult)
     )
@@ -83,12 +64,9 @@ class GameResult(Model):
     def __iter__(self) -> Iterator[tuple[Region, RegionResult]]:
         return iter(self._regions.items())
 
-    def to_dict(self) -> dict:
-        return {region.name: region_result for region, region_result in self}
-
 
 @dataclass(frozen=True)
-class Results(Model):
+class Results():
     _games: dict[Game, GameResult] = field(
         default_factory=lambda: defaultdict(GameResult)
     )
@@ -98,6 +76,3 @@ class Results(Model):
 
     def __iter__(self) -> Iterator[tuple[Game, GameResult]]:
         return iter(sorted(self._games.items()))
-
-    def to_dict(self) -> dict:
-        return {game.id: game_result for game, game_result in self}
