@@ -7,6 +7,7 @@ import httpx
 from xbox_cloud_statistics.client import XBoxCloudClient
 from xbox_cloud_statistics.config import Config
 from xbox_cloud_statistics.io.cli import CLI
+from xbox_cloud_statistics.io.influxdb import InfluxDB
 
 from .models import (
     Game,
@@ -45,6 +46,7 @@ async def main():
             )
 
     CLI.handle(results)
+    InfluxDB.handle(config.influxdb_url, config.influxdb_token, config.influxdb_org, config.influxdb_bucket, results)
 
 
 async def run_measurements(

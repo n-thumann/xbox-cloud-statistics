@@ -25,7 +25,6 @@ class InfluxDB(IO):
                         .time(measurement.server_time)
                         .field("wait_time", measurement.wait_time)
                     )
-                    print(point)
 
                     points.append(point)
 
