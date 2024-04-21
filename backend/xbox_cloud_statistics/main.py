@@ -46,7 +46,13 @@ async def main():
             )
 
     CLI.handle(results)
-    InfluxDB.handle(config.influxdb_url, config.influxdb_token, config.influxdb_org, config.influxdb_bucket, results)
+    InfluxDB.handle(
+        config.influxdb_url,
+        config.influxdb_token,
+        config.influxdb_org,
+        config.influxdb_bucket,
+        results,
+    )
 
 
 async def run_measurements(

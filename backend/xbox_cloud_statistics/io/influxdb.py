@@ -8,6 +8,7 @@ from xbox_cloud_statistics.models import Measurement, Results
 
 from .io import IO
 
+
 class InfluxDB(IO):
     @staticmethod
     def handle(url: str, token: str, org: str, bucket: str, results: Results):

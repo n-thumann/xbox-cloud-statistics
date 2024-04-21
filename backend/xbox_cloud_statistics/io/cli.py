@@ -13,7 +13,13 @@ class CLI(IO):
             for region, subscriptions in regions:
                 for subscription, measurement in subscriptions:
                     output.append(
-                        [game.id, region.name, subscription, measurement.server_time, measurement.wait_time]
+                        [
+                            game.id,
+                            region.name,
+                            subscription,
+                            measurement.server_time,
+                            measurement.wait_time,
+                        ]
                     )
 
         headers = [

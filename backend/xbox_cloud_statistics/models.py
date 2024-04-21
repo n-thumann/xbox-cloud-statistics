@@ -5,6 +5,7 @@ from datetime import datetime
 from enum import Flag, auto
 from typing import Iterator
 
+
 @dataclass(frozen=True)
 class Region:
     name: str
@@ -18,13 +19,13 @@ class Subscription(Flag):
     @classmethod
     def from_string(cls, value: str):
         return cls._member_map_.get(value)
-    
+
     def __str__(self) -> str:
         return self.name
 
 
 @dataclass(frozen=True)
-class Game():
+class Game:
     id: str
     title: str
     image_url: str
@@ -38,26 +39,29 @@ class Game():
 
 
 @dataclass(frozen=True)
-class Measurement():
+class Measurement:
     server_time: datetime
     wait_time: int
 
 
 @dataclass(frozen=True)
-class RegionResult():
-    _subscriptions: dict[Subscription, Measurement] = field(default_factory=lambda: defaultdict())
+class RegionResult:
+    _subscriptions: dict[Subscription, Measurement] = field(
+        default_factory=lambda: defaultdict()
+    )
 
     def __getitem__(self, subscription: Subscription) -> Measurement:
         return self._subscriptions[subscription]
-    
+
     def __setitem__(self, subscription: Subscription, measurement: Measurement):
         self._subscriptions[subscription] = measurement
 
     def __iter__(self) -> Iterator[tuple[Subscription, Measurement]]:
         return iter(self._subscriptions.items())
 
+
 @dataclass(frozen=True)
-class GameResult():
+class GameResult:
     _regions: dict[Region, RegionResult] = field(
         default_factory=lambda: defaultdict(RegionResult)
     )
@@ -70,7 +74,7 @@ class GameResult():
 
 
 @dataclass(frozen=True)
-class Results():
+class Results:
     _games: dict[Game, GameResult] = field(
         default_factory=lambda: defaultdict(GameResult)
     )

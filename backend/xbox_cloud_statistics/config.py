@@ -31,7 +31,7 @@ class Config:
         self.influxdb_url = os.environ.get("INFLUXDB_URL")
         self.influxdb_token = os.environ.get("INFLUXDB_TOKEN")
         self.influxdb_org = os.environ.get("INFLUXDB_ORG")
-        self.influxdb_bucket =  os.environ.get("INFLUXDB_BUCKET")
+        self.influxdb_bucket = os.environ.get("INFLUXDB_BUCKET")
 
         self._validate()
 
@@ -56,9 +56,18 @@ class Config:
                 "GPU games and environment variable "
                 "GPU_TOKEN need to be specified mutally"
             )
-        
-        if not any([self.influxdb_url, self.influxdb_token, self.influxdb_org, self.influxdb_bucket]):
-            raise Exception("Environment variables for InfluxDB (INFLUXDB_URL, INFLUXDB_TOKEN, INFLUXDB_ORG and INFLUXDB_BUCKET) are required")
+
+        if not any(
+            [
+                self.influxdb_url,
+                self.influxdb_token,
+                self.influxdb_org,
+                self.influxdb_bucket,
+            ]
+        ):
+            raise Exception(
+                "Environment variables for InfluxDB (INFLUXDB_URL, INFLUXDB_TOKEN, INFLUXDB_ORG and INFLUXDB_BUCKET) are required"
+            )
 
     @property
     def f2p_games(self) -> list[Game]:
