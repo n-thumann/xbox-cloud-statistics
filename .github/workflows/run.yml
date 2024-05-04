@@ -12,24 +12,13 @@ concurrency:
 permissions:
   contents: write
 
-env:
-  GH_TOKEN: ${{ github.token }}
-  RESULTS_FILE_NAME: results.tar.gz
-
 jobs:
   run:
     name: Run xbox-cloud-statistics
     runs-on: ubuntu-latest
     environment: run
-    defaults:
-      run:
-        working-directory: backend/
     steps:
       - uses: actions/checkout@v4
-      - name: Download results
-        run: |
-          gh release download results --pattern ${{ env.RESULTS_FILE_NAME }}
-          tar -xzvf ${{ env.RESULTS_FILE_NAME }}
       - name: Install poetry
         run: pipx install poetry
       - name: Set up Python
@@ -45,20 +34,9 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           F2P_TOKEN: ${{ secrets.F2P_TOKEN }}
           GPU_TOKEN: ${{ secrets.GPU_TOKEN }}
+          INFLUXDB_URL: ${{ secrets.INFLUXDB_URL }}
+          INFLUXDB_TOKEN: ${{ secrets.INFLUXDB_TOKEN }}
+          INFLUXDB_ORG: ${{ secrets.INFLUXDB_ORG }}
+          INFLUXDB_BUCKEt: ${{ secrets.INFLUXDB_BUCKET }}
         shell: bash
         run: poetry run xbox-cloud-statistics | tee -a $GITHUB_STEP_SUMMARY
-      - name: Prepare results
-        run: tar -czvf ${{ env.RESULTS_FILE_NAME }} results/
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.RESULTS_FILE_NAME }}
-          path: backend/${{ env.RESULTS_FILE_NAME }}
-          retention-days: 1
-      - name: Persist results
-        run: |
-          LAST_UPDATE=$(date --utc --date "@$(jq .last_update ./results/meta.json)")
-          gh release edit results \
-            --title "Results from $LAST_UPDATE" \
-            --notes "\`results.tar.gz\` of this release contains the latest results as of $LAST_UPDATE"
-          gh release upload results ${{ env.RESULTS_FILE_NAME }} --clobber
