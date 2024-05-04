@@ -9,18 +9,13 @@ on:
 
 jobs:
   ci:
-    name: CI (${{ matrix.path }})
+    name: CI (${{ matrix.project }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
-          - path: backend
-            project: xbox_cloud_statistics
-          - path: frontend
-            project: site_generator
-    defaults:
-      run:
-        working-directory: ${{ matrix.path }}
+          - project: xbox_cloud_statistics
+          - project: site_generator
     steps:
       - uses: actions/checkout@v4
       - name: Install poetry
