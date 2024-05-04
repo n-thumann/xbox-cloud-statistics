@@ -10,24 +10,12 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-env:
-  GH_TOKEN: ${{ github.token }}
-  FRONTEND_PATH: frontend
-  RESULTS_FILE_NAME: results.tar.gz
-
 jobs:
   build:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
-    defaults:
-      run:
-        working-directory: ${{ env.FRONTEND_PATH }}
     steps:
       - uses: actions/checkout@v4
-      - name: Download results
-        run: |
-          gh release download results --pattern ${{ env.RESULTS_FILE_NAME }}
-          tar -xzvf ${{ env.RESULTS_FILE_NAME }}
       - name: Install poetry
         run: pipx install poetry
       - name: Set up Python
@@ -38,11 +26,16 @@ jobs:
       - name: Install Dependencies
         run: poetry install --only main
       - name: Run site-generator
+        env:
+          INFLUXDB_URL: ${{ secrets.INFLUXDB_URL }}
+          INFLUXDB_TOKEN: ${{ secrets.INFLUXDB_TOKEN }}
+          INFLUXDB_ORG: ${{ secrets.INFLUXDB_ORG }}
+          INFLUXDB_BUCKEt: ${{ secrets.INFLUXDB_BUCKET }}
         run: poetry run site-generator
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.FRONTEND_PATH }}/dist/
+          path: ./dist/
 
   deploy:
     needs: build
