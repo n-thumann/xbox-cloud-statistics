@@ -1,6 +1,6 @@
 from tabulate import tabulate
 
-from xbox_cloud_statistics.models import Results
+from common.models import Results
 
 from .io import IO
 

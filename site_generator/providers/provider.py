@@ -11,8 +11,7 @@ class Provider(metaclass=ABCMeta):
         self.cache.mkdir(exist_ok=True)
 
     @abstractmethod
-    def get(self):
-        ...
+    def get(self): ...
 
     def _download(self, file_name: str, remote_file_url: str):
         file = self.cache / file_name

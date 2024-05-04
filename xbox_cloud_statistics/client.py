@@ -2,10 +2,10 @@ import asyncio
 import functools
 from datetime import datetime, timezone
 
+from common.models import Game, Measurement, Region, Subscription
 import httpx
 import msal
 
-from xbox_cloud_statistics.models import Game, Measurement, Region, Subscription
 
 CONCURRENCY = 10
 SCOPES = ["xboxlive.signin", "xboxlive.offline_access"]

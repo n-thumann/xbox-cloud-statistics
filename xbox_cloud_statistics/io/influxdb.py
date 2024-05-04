@@ -1,8 +1,7 @@
-
 from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 
-from xbox_cloud_statistics.models import Results
+from common.models import Results
 
 from .io import IO
 

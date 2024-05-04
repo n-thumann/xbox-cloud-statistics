@@ -1,19 +1,13 @@
 import asyncio
 import itertools
 
+from common.models import Game, Measurement, Results, Subscription
 import httpx
 
 from xbox_cloud_statistics.client import XBoxCloudClient
-from xbox_cloud_statistics.config import Config
+from xbox_cloud_statistics.config import BackendConfig
 from xbox_cloud_statistics.io.cli import CLI
 from xbox_cloud_statistics.io.influxdb import InfluxDB
-
-from .models import (
-    Game,
-    Measurement,
-    Results,
-    Subscription,
-)
 
 
 def run():
@@ -21,7 +15,7 @@ def run():
 
 
 async def main():
-    config = Config()
+    config = BackendConfig()
     results = Results()
 
     async with httpx.AsyncClient(http2=True) as http_client:

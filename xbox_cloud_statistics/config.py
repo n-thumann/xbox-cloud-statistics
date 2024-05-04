@@ -2,25 +2,13 @@ import operator
 import os
 from functools import reduce
 
-import tomllib
+from common.config import Config
+from common.models import Game, Subscription
 
-from xbox_cloud_statistics.models import Game, Subscription
 
-
-class Config:
+class BackendConfig(Config):
     def __init__(self):
-        with open("config.toml", mode="rb") as fp:
-            config = tomllib.load(fp)
-
-            self.games = list()
-            for id, info in config.get("games").items():
-                subscriptions = reduce(
-                    operator.or_,
-                    map(Subscription.from_string, info.get("subscriptions")),
-                )
-                self.games.append(
-                    Game(id, info.get("title"), info.get("image_url"), subscriptions)
-                )
+        super().__init__()
 
         self.client_id = os.environ.get("CLIENT_ID")
         self.client_secret = os.environ.get("CLIENT_SECRET")
@@ -28,14 +16,11 @@ class Config:
         self.f2p_token = os.environ.get("F2P_TOKEN")
         self.gpu_token = os.environ.get("GPU_TOKEN")
 
-        self.influxdb_url = os.environ.get("INFLUXDB_URL")
-        self.influxdb_token = os.environ.get("INFLUXDB_TOKEN")
-        self.influxdb_org = os.environ.get("INFLUXDB_ORG")
-        self.influxdb_bucket = os.environ.get("INFLUXDB_BUCKET")
-
         self._validate()
 
     def _validate(self):
+        super()._validate()
+
         if not self.client_id or not self.client_secret:
             raise Exception(
                 "Environment variables CLIENT_ID and CLIENT_SECRET are required"
@@ -55,18 +40,6 @@ class Config:
             raise Exception(
                 "GPU games and environment variable "
                 "GPU_TOKEN need to be specified mutally"
-            )
-
-        if not any(
-            [
-                self.influxdb_url,
-                self.influxdb_token,
-                self.influxdb_org,
-                self.influxdb_bucket,
-            ]
-        ):
-            raise Exception(
-                "Environment variables for InfluxDB (INFLUXDB_URL, INFLUXDB_TOKEN, INFLUXDB_ORG and INFLUXDB_BUCKET) are required"
             )
 
     @property
