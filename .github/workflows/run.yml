@@ -37,6 +37,6 @@ jobs:
           INFLUXDB_URL: ${{ secrets.INFLUXDB_URL }}
           INFLUXDB_TOKEN: ${{ secrets.INFLUXDB_TOKEN }}
           INFLUXDB_ORG: ${{ secrets.INFLUXDB_ORG }}
-          INFLUXDB_BUCKEt: ${{ secrets.INFLUXDB_BUCKET }}
+          INFLUXDB_BUCKET: ${{ secrets.INFLUXDB_BUCKET }}
         shell: bash
         run: poetry run xbox-cloud-statistics | tee -a $GITHUB_STEP_SUMMARY
