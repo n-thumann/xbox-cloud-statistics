@@ -1,5 +1,4 @@
 from collections import defaultdict
-from datetime import datetime, timedelta
 
 from common.models import Game
 from site_generator.config import FrontendConfig
@@ -9,9 +8,6 @@ from site_generator.providers.js import JS
 from site_generator.templates.templates import Templates
 
 from influxdb_client import InfluxDBClient
-
-
-MINIMUM_TIMESTAMP = (datetime.now() - timedelta(days=3)).timestamp()
 
 
 def main():
@@ -52,7 +48,7 @@ def write_games(
 
 def get_games(influxdb_client: InfluxDBClient, influxdb_bucket: str):
     query_api = influxdb_client.query_api()
-    tables = query_api.query(f'from(bucket:"{influxdb_bucket}") |> range(start: -14d)')
+    tables = query_api.query(f'from(bucket:"{influxdb_bucket}") |> range(start: -3d)')
 
     games = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
     for table in tables:
@@ -72,7 +68,7 @@ def get_games(influxdb_client: InfluxDBClient, influxdb_bucket: str):
 def get_last_update(influxdb_client: InfluxDBClient, influxdb_bucket: str):
     query_api = influxdb_client.query_api()
     tables = query_api.query(
-        f'from(bucket:"{influxdb_bucket}") |> range(start: -14d) |> keep(columns: ["_time"]) |> last(column: "_time") |> sort(columns: ["_time"], desc: false) |> limit(n: 1)'
+        f'from(bucket:"{influxdb_bucket}") |> range(start: -3d) |> last() |> group() |> last()'
     )
     return tables[0].records[0].get_time()
 
