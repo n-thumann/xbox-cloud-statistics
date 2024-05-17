@@ -19,8 +19,8 @@ class Templates:
         environment.filters["format_date"] = lambda datetime: datetime.strftime(
             "%d/%m/%Y, %H:%M:%S %Z"
         )
-        environment.filters["to_color"] = (
-            lambda subscription: "#24d292" if subscription == "F2P" else "#d558c8"
+        environment.filters["to_color"] = lambda subscription: (
+            "#24d292" if subscription == "F2P" else "#d558c8"
         )
 
         self.environment = environment

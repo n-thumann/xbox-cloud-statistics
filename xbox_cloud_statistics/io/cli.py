@@ -1,6 +1,6 @@
 from tabulate import tabulate
 
-from xbox_cloud_statistics.models import Results
+from common.models import Results
 
 from .io import IO
 
@@ -11,14 +11,15 @@ class CLI(IO):
         output = []
         for game, regions in results:
             for region, subscriptions in regions:
-                for subscription, measurements in subscriptions:
-                    latest_measurement = measurements.latest()
-                    server_time, wait_time = (
-                        latest_measurement.server_time,
-                        latest_measurement.wait_time,
-                    )
+                for subscription, measurement in subscriptions:
                     output.append(
-                        [game.id, region.name, subscription, server_time, wait_time]
+                        [
+                            game.id,
+                            region.name,
+                            subscription,
+                            measurement.server_time,
+                            measurement.wait_time,
+                        ]
                     )
 
         headers = [

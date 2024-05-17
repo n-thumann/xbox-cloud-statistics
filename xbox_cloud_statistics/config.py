@@ -2,25 +2,13 @@ import operator
 import os
 from functools import reduce
 
-import tomllib
+from common.config import Config
+from common.models import Game, Subscription
 
-from xbox_cloud_statistics.models import Game, Subscription
 
-
-class Config:
+class BackendConfig(Config):
     def __init__(self):
-        with open("config.toml", mode="rb") as fp:
-            config = tomllib.load(fp)
-
-            self.games = list()
-            for id, info in config.get("games").items():
-                subscriptions = reduce(
-                    operator.or_,
-                    map(Subscription.from_string, info.get("subscriptions")),
-                )
-                self.games.append(
-                    Game(id, info.get("title"), info.get("image_url"), subscriptions)
-                )
+        super().__init__()
 
         self.client_id = os.environ.get("CLIENT_ID")
         self.client_secret = os.environ.get("CLIENT_SECRET")
@@ -31,6 +19,8 @@ class Config:
         self._validate()
 
     def _validate(self):
+        super()._validate()
+
         if not self.client_id or not self.client_secret:
             raise Exception(
                 "Environment variables CLIENT_ID and CLIENT_SECRET are required"

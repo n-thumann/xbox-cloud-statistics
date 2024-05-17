@@ -1,20 +1,13 @@
 import asyncio
 import itertools
-from pathlib import Path
 
+from common.models import Game, Measurement, Results, Subscription
 import httpx
 
 from xbox_cloud_statistics.client import XBoxCloudClient
-from xbox_cloud_statistics.config import Config
+from xbox_cloud_statistics.config import BackendConfig
 from xbox_cloud_statistics.io.cli import CLI
-from xbox_cloud_statistics.io.json import JSON
-
-from .models import (
-    Game,
-    Measurement,
-    Results,
-    Subscription,
-)
+from xbox_cloud_statistics.io.influxdb import InfluxDB
 
 
 def run():
@@ -22,7 +15,7 @@ def run():
 
 
 async def main():
-    config = Config()
+    config = BackendConfig()
     results = Results()
 
     async with httpx.AsyncClient(http2=True) as http_client:
@@ -46,7 +39,13 @@ async def main():
             )
 
     CLI.handle(results)
-    JSON.handle(results, Path("./results"))
+    InfluxDB.handle(
+        config.influxdb_url,
+        config.influxdb_token,
+        config.influxdb_org,
+        config.influxdb_bucket,
+        results,
+    )
 
 
 async def run_measurements(
@@ -72,7 +71,7 @@ async def run_measurements(
             print(f"Failed to handle {game.id}@{region.name}: {measurement}")
             continue
 
-        results[game][region][subscription].add_measurement(measurement)
+        results[game][region][subscription] = measurement
 
 
 if __name__ == "__main__":
