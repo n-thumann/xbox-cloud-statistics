@@ -14,6 +14,7 @@ jobs:
   build:
     runs-on: self-hosted
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    environment: run
     steps:
       - uses: actions/checkout@v4
       - name: Install poetry
