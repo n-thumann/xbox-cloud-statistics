@@ -1,18 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/backend"
+    directory: "/"
     schedule:
       interval: "monthly"
-    groups:
-      backend-dependendcies:
-        patterns:
-          - "*"
-  - package-ecosystem: "pip"
-    directory: "/frontend"
-    schedule:
-      interval: "monthly"
-    groups:
-      frontend-dependendcies:
-        patterns:
-          - "*"
