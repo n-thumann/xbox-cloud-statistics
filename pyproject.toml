@@ -29,4 +29,5 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 xbox-cloud-statistics = 'xbox_cloud_statistics.main:run'
 xbox-cloud-authenticate = 'xbox_cloud_statistics.scripts.authenticate:run'
+xbox-cloud-json2influxdb = 'xbox_cloud_statistics.scripts.json2influxdb:run'
 site-generator = 'site_generator.main:main'
