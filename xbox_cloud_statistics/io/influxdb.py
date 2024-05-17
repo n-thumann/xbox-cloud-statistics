@@ -1,4 +1,4 @@
-from influxdb_client import InfluxDBClient, Point
+from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 from common.models import Results
@@ -27,5 +27,5 @@ class InfluxDB(IO):
                     points.append(point)
 
         with InfluxDBClient(url=url, token=token, org=org) as client:
-            write_api = client.write_api(write_options=SYNCHRONOUS)
-            write_api.write(bucket=bucket, org=org, record=points)
+            with client.write_api() as write_api:
+                write_api.write(bucket=bucket, org=org, record=points, write_precision=WritePrecision.S)
