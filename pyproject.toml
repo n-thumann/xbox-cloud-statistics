@@ -8,7 +8,7 @@ packages = [{include = "xbox_cloud_statistics"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-msal = "^1.29.0"
+msal = "^1.30.0"
 httpx = {extras = ["http2"], version = "^0.27.0"}
 tabulate = "^0.9.0"
 influxdb-client = "^1.44.0"
@@ -17,7 +17,7 @@ pytailwindcss = "^0.2.0"
 
 [tool.poetry.group.dev.dependencies]
 types-tabulate = "^0.9.0.20240106"
-ruff = "^0.5.0"
+ruff = "^0.5.5"
 black = "^24.4.1"
 toml-sort = "^0.23.1"
 
